@@ -17,6 +17,9 @@
 		7F837BF92B3E83650010E15E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F837BF82B3E83650010E15E /* Assets.xcassets */; };
 		7F837BFC2B3E83650010E15E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F837BFA2B3E83650010E15E /* LaunchScreen.storyboard */; };
 		7FAF3CFF2B54F7C800902AEF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAF3CFE2B54F7C800902AEF /* CustomButton.swift */; };
+		7FC63B092B598B5F00A9BB7E /* AddRegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC63B082B598B5F00A9BB7E /* AddRegistrationTableViewController.swift */; };
+		7FC63B0B2B599C8300A9BB7E /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC63B0A2B599C8300A9BB7E /* Registration.swift */; };
+		7FC63B0D2B599E8800A9BB7E /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC63B0C2B599E8800A9BB7E /* RegistrationTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		7F837BFB2B3E83650010E15E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F837BFD2B3E83650010E15E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FAF3CFE2B54F7C800902AEF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		7FC63B082B598B5F00A9BB7E /* AddRegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegistrationTableViewController.swift; sourceTree = "<group>"; };
+		7FC63B0A2B599C8300A9BB7E /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		7FC63B0C2B599E8800A9BB7E /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 				7F837BF12B3E83640010E15E /* SceneDelegate.swift */,
 				7F837BF32B3E83640010E15E /* ViewController.swift */,
 				7F837BF52B3E83640010E15E /* Main.storyboard */,
+				7FC63B0C2B599E8800A9BB7E /* RegistrationTableViewController.swift */,
+				7FC63B0A2B599C8300A9BB7E /* Registration.swift */,
+				7FC63B082B598B5F00A9BB7E /* AddRegistrationTableViewController.swift */,
 				7FAF3CFE2B54F7C800902AEF /* CustomButton.swift */,
 				7F0D5BC52B4E911A00936F75 /* CreatePageDetails.swift */,
 				7F0D5BC72B4E919C00936F75 /* CreatePageTableViewController.swift */,
@@ -154,8 +163,11 @@
 				7F0D5BC62B4E911A00936F75 /* CreatePageDetails.swift in Sources */,
 				7F0D5BCA2B4E94EE00936F75 /* CreatePageTableViewCell.swift in Sources */,
 				7F837BF02B3E83640010E15E /* AppDelegate.swift in Sources */,
+				7FC63B0B2B599C8300A9BB7E /* Registration.swift in Sources */,
 				7FAF3CFF2B54F7C800902AEF /* CustomButton.swift in Sources */,
 				7F0D5BC82B4E919C00936F75 /* CreatePageTableViewController.swift in Sources */,
+				7FC63B092B598B5F00A9BB7E /* AddRegistrationTableViewController.swift in Sources */,
+				7FC63B0D2B599E8800A9BB7E /* RegistrationTableViewController.swift in Sources */,
 				7F837BF22B3E83640010E15E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

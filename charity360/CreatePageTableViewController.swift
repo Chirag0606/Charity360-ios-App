@@ -11,7 +11,8 @@ class CreatePageTableViewController: UITableViewController {
     
     var cellName: [details] = [
     details(buttonName: "Create your Event"),
-    details(buttonName: "Share your Story")
+    details(buttonName: "Share your Story"),
+    details(buttonName: "Ask Donation")
     ]
 
     override func viewDidLoad() {

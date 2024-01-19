@@ -10,7 +10,6 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    
     @IBOutlet weak var segmentOutlet: UISegmentedControl!
     
     @IBOutlet weak var participatedSegmentView: UIView!

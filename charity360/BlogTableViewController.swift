@@ -1,19 +1,15 @@
 //
-//  CreatePageTableViewController.swift
+//  BlogTableViewController.swift
 //  charity360
 //
-//  Created by user1 on 10/01/24.
+//  Created by user1 on 21/02/24.
 //
 
 import UIKit
 
-class CreatePageTableViewController: UITableViewController {
+class BlogTableViewController: UITableViewController {
     
-    var cellName: [details] = [
-    details(buttonName: "Create your Event"),
-    details(buttonName: "Create Blog"),
-    details(buttonName: "Ask Donation")
-    ]
+    var blogs: [Blog] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,40 +30,29 @@ class CreatePageTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return cellName.count
+        return blogs.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellName", for: indexPath) as! CreatePageTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "blogcell", for: indexPath)
         
-        let detail = cellName[indexPath.row]
-        
-        cell.update(with: detail)
+        let blog = blogs[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
-        content.text = "\(detail.buttonName)"
+        content.text = blog.nameOfTheBlog
+        content.secondaryText = blog.writtenBy
         cell.contentConfiguration = content
-        
-        cell.showsReorderControl = true
-
-        // Configure the cell...
 
         return cell
     }
     
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            performSegue(withIdentifier: "CreateEventView", sender: nil)
-        }
-        if indexPath.row == 1 {
-            performSegue(withIdentifier: "ShareStoryView", sender: nil)
-        }
-        if indexPath.row == 2 {
-            performSegue(withIdentifier: "AskDonation", sender: nil)
-        }
+    @IBAction func unwindFromAddBlog(unwindSegue: UIStoryboardSegue) {
+        guard let addBlogTableViewController = unwindSegue.source as? AddBlogTableViewController, let blog = addBlogTableViewController.blog
+        else {return}
+        blogs.append(blog)
+        tableView.reloadData()
     }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -103,19 +88,13 @@ class CreatePageTableViewController: UITableViewController {
     }
     */
 
-    
-    
-    // MARK: - Navigation
     /*
+    // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "CreateEventView" {
-            let vc = segue.destination as? CreateEventView
-            
-        }
     }
     */
 

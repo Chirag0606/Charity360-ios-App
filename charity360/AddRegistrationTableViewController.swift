@@ -183,24 +183,8 @@ class AddRegistrationTableViewController: UITableViewController {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
-    
-    
 
-//    @IBAction func doneBarButton(_ sender: UIBarButtonItem) {
-//        let nameOfTheEvent = nameOfTheEventTextField.text ?? ""
-//        
-//        let start = startDateTimeLabel.text ?? ""
-//        let end = endDateTimeLabel.text ?? ""
-//        
-//        let organizationName = organizationNameTextField.text ?? ""
-//        let typeOfEvent = typeOfEventTextField.text ?? ""
-//        
-//        
-//        print("Button Tapped")
-//        print("Name of the event: \(nameOfTheEvent)")
-//        print("Start Date & Time: \(start)")
-//        print("End Date & Time: \(end)")
-//        print("Organization Name: \(organizationName)")
-//        print("Type of the Event: \(typeOfEvent)")
-//    }
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 }

@@ -1,22 +1,42 @@
 //
-//  CreatePageTableViewController.swift
+//  AddBlogTableViewController.swift
 //  charity360
 //
-//  Created by user1 on 10/01/24.
+//  Created by user1 on 21/02/24.
 //
 
 import UIKit
 
-class CreatePageTableViewController: UITableViewController {
-    
-    var cellName: [details] = [
-    details(buttonName: "Create your Event"),
-    details(buttonName: "Create Blog"),
-    details(buttonName: "Ask Donation")
-    ]
+class AddBlogTableViewController: UITableViewController {
 
+    var blog: Blog? {
+        let heading = headingTextField.text ?? ""
+        
+        let writtenBy = writtenByTextField.text ?? ""
+        
+        let date = datePicker.date
+        
+        let description = descriptionTextField.text ?? ""
+        
+        return Blog(nameOfTheBlog: heading, writtenBy: writtenBy, date: date, description: description)
+    }
+    
+    @IBOutlet weak var headingTextField: UITextField!
+    
+    @IBOutlet weak var writtenByTextField: UITextField!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var descriptionTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let midnightToday = Calendar.current.startOfDay(for: Date())
+        datePicker.minimumDate = midnightToday
+        datePicker.date = midnightToday
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,50 +44,41 @@ class CreatePageTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func updateDate() {
+        dateLabel.text = datePicker.date.formatted(date: .abbreviated, time: .standard)
+    }
+    
+    @IBAction func dateValueChanged(_ sender: UIDatePicker) {
+        updateDate()
+    }
+    
 
     // MARK: - Table view data source
 
+    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
-
+     */
+    /*
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return cellName.count
+        return 0
     }
+     */
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellName", for: indexPath) as! CreatePageTableViewCell
-        
-        let detail = cellName[indexPath.row]
-        
-        cell.update(with: detail)
-        
-        var content = cell.defaultContentConfiguration()
-        content.text = "\(detail.buttonName)"
-        cell.contentConfiguration = content
-        
-        cell.showsReorderControl = true
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            performSegue(withIdentifier: "CreateEventView", sender: nil)
-        }
-        if indexPath.row == 1 {
-            performSegue(withIdentifier: "ShareStoryView", sender: nil)
-        }
-        if indexPath.row == 2 {
-            performSegue(withIdentifier: "AskDonation", sender: nil)
-        }
-    }
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -103,20 +114,18 @@ class CreatePageTableViewController: UITableViewController {
     }
     */
 
-    
-    
-    // MARK: - Navigation
     /*
+    // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "CreateEventView" {
-            let vc = segue.destination as? CreateEventView
-            
-        }
     }
     */
 
+    
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 }

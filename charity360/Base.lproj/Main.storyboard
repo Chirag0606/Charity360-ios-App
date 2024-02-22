@@ -1768,7 +1768,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Iq4-Mx-H5e"/>
                     <connections>
-                        <segue destination="HPp-y6-27e" kind="presentation" identifier="ShowBlogDetails" id="vtG-fm-jaV"/>
+                        <segue destination="HPp-y6-27e" kind="presentation" id="vtG-fm-jaV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dm9-MU-zDd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1841,7 +1841,7 @@
                                         <rect key="frame" x="20" y="254.33333015441895" width="315" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EXU-0p-Er7" id="7hW-uS-96D">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yg0-TK-b5h">
@@ -1867,7 +1867,7 @@
                                         <rect key="frame" x="20" y="333.99999809265137" width="315" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ecg-Rk-joy" id="4Us-18-XN6">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9H-u3-eWE">
@@ -1902,7 +1902,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U0E-1t-m0T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1187" y="-6695"/>
+            <point key="canvasLocation" x="-1190" y="-6684"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ApI-rJ-p8S">

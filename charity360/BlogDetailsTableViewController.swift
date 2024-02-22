@@ -1,16 +1,25 @@
 //
-//  BlogTableViewController.swift
+//  BlogDetailsTableViewController.swift
 //  charity360
 //
-//  Created by user1 on 21/02/24.
+//  Created by user1 on 22/02/24.
 //
 
 import UIKit
 
-class BlogTableViewController: UITableViewController {
+class BlogDetailsTableViewController: UITableViewController {
     
-    var blogs: [Blog] = []
-
+    var blog: Blog?
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var authorLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var matterLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,37 +28,38 @@ class BlogTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        if let blog = blog {
+            titleLabel.text = blog.nameOfTheBlog
+            authorLabel.text = blog.writtenBy
+            dateLabel.text = "\(blog.date)"
+            matterLabel.text =  blog.description
+        }
     }
 
     // MARK: - Table view data source
 
+    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return blogs.count
+        return 0
     }
-    
+     */
+
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "blogcell", for: indexPath)
-        
-        let blog = blogs[indexPath.row]
-        
-        var content = cell.defaultContentConfiguration()
-        content.text = blog.nameOfTheBlog
-        content.secondaryText = blog.writtenBy
-        cell.contentConfiguration = content
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
 
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            performSegue(withIdentifier: "ShowBlogDetails", sender: indexPath)
-        }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -95,22 +105,5 @@ class BlogTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "ShowBlogDetails", let indexPath = sender as? IndexPath {
-                if let destinationVC = segue.destination as? BlogDetailsTableViewController {
-                    let selectedBlog = blogs[indexPath.row]
-                    destinationVC.blog = selectedBlog
-                }
-            }
-        }
-    
-    
-    @IBAction func unwindFromAddBlog(unwindSegue: UIStoryboardSegue) {
-        guard let addBlogTableViewController = unwindSegue.source as? AddBlogTableViewController, let blog = addBlogTableViewController.blog
-        else {return}
-        blogs.append(blog)
-        tableView.reloadData()
-    }
 
 }

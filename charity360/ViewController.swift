@@ -9,22 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-    @IBOutlet weak var segmentOutlet: UISegmentedControl!
-    
-    @IBOutlet weak var participatedSegmentView: UIView!
-    
-    @IBOutlet weak var completedSegmentView: UIView!
-    
     @IBOutlet weak var yourEventsSegmentView: UIView!
-    
     @IBOutlet weak var account: UISegmentedControl!
-    
     @IBOutlet weak var loginSegmentView: UIView!
-    
     @IBOutlet weak var registerSegmentView: UIView!
-    
     @IBOutlet weak var paymentField: UITextField!
+    @IBOutlet weak var viewAllButton: UIButton!
     
     let methods = ["GPay", "PayTM", "PhonePe", "BHIM"]
     
@@ -39,23 +29,8 @@ class ViewController: UIViewController {
         paymentField?.inputView = methodPickerView
         methodPickerView.delegate = self
         methodPickerView.dataSource = self
-        
+
         methodPickerView.tag = 1
-    }
-    
-    
-    
-    @IBAction func segmentAction(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            self.view.bringSubviewToFront(participatedSegmentView)
-        case 1:
-            self.view.bringSubviewToFront(completedSegmentView)
-        case 2:
-            self.view.bringSubviewToFront(yourEventsSegmentView)
-        default:
-            break
-        }
     }
     
     
@@ -70,7 +45,9 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    @IBAction func viewAllButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "ViewAll", sender: self)
+    }
 }
 
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -108,9 +85,3 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
 }
-
-
-
-
-
-

@@ -1,27 +1,16 @@
 //
-//  RegistrationsDetailsTableViewController.swift
+//  SecondRegistrationTableViewController.swift
 //  charity360
 //
-//  Created by user1 on 22/02/24.
+//  Created by admin on 03/03/24.
 //
 
 import UIKit
 
-class RegistrationsDetailsTableViewController: UITableViewController {
+class SecondRegistrationTableViewController: UITableViewController {
     
-    var registration: Registration?
-    
-    @IBOutlet weak var eventNameLabel: UILabel!
-    
-    @IBOutlet weak var startDateLabel: UILabel!
-    @IBOutlet weak var endDateLabel: UILabel!
-    
-    @IBOutlet weak var organizationNameLabel: UILabel!
-    
-    @IBOutlet weak var eventTypeLabel: UILabel!
-    
-    @IBOutlet weak var donateButton: UIButton!
-    
+    var registrations: [Registration] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,19 +19,10 @@ class RegistrationsDetailsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        if let registration = registration {
-                    eventNameLabel.text = registration.nameOfTheEvent
-                    startDateLabel.text = "\(registration.startDate)"
-                    endDateLabel.text = "\(registration.endDate)"
-                    organizationNameLabel.text =  registration.organizationName
-                    eventTypeLabel.text = registration.typeOfEvent
-                }
     }
 
     // MARK: - Table view data source
 
-    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
@@ -50,9 +30,26 @@ class RegistrationsDetailsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return registrations.count
     }
-     */
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SecondRegistrationCell", for: indexPath)
+
+        let registration = registrations[indexPath.row]
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = registration.nameOfTheEvent
+        content.secondaryText = (registration.startDate..<registration.endDate)
+            .formatted(date: .numeric, time: .standard)
+        cell.contentConfiguration = content
+
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            performSegue(withIdentifier: "ShowSecondRegistrationDetails", sender: indexPath)
+        }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,19 +96,22 @@ class RegistrationsDetailsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+            if segue.identifier == "ShowSecondRegistrationDetails", let indexPath = sender as? IndexPath {
+                if let destinationVC = segue.destination as? SecondRegistrationsDetailsTableViewController {
+                    let selectedRegistration = registrations[indexPath.row]
+                    destinationVC.registration = selectedRegistration
+                }
+            }
+        }
     
-    @IBAction func donateButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "Donate", sender: self)
+    @IBAction func unwindFromAddRegistration(unwindSegue: UIStoryboardSegue) {
+        guard let addRegistrationTableViewController = unwindSegue.source as? AddRegistrationTableViewController, let registration = addRegistrationTableViewController.registration
+        else {return}
+        registrations.append(registration)
+        tableView.reloadData()
     }
-    
-
 }

@@ -1,14 +1,14 @@
 //
-//  RegistrationsDetailsTableViewController.swift
+//  SecondRegistrationsDetailsTableViewController.swift
 //  charity360
 //
-//  Created by user1 on 22/02/24.
+//  Created by admin on 03/03/24.
 //
 
 import UIKit
 
-class RegistrationsDetailsTableViewController: UITableViewController {
-    
+class SecondRegistrationsDetailsTableViewController: UITableViewController {
+
     var registration: Registration?
     
     @IBOutlet weak var eventNameLabel: UILabel!
@@ -20,8 +20,7 @@ class RegistrationsDetailsTableViewController: UITableViewController {
     
     @IBOutlet weak var eventTypeLabel: UILabel!
     
-    @IBOutlet weak var donateButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +29,6 @@ class RegistrationsDetailsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         if let registration = registration {
                     eventNameLabel.text = registration.nameOfTheEvent
                     startDateLabel.text = "\(registration.startDate)"
@@ -108,10 +106,5 @@ class RegistrationsDetailsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func donateButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "Donate", sender: self)
-    }
-    
 
 }

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Zakat_Clipart_Hd_PNG__Donation_Illustration_Png_Lets_Pay_Zakat_Ramadan_Clipart__Ramadan__Lets_Pay_Zakat__Donation_PNG_Image_For_Free_Download-removebg-preview.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

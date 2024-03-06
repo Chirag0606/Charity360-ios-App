@@ -12,7 +12,7 @@ class CreatePageTableViewController: UITableViewController {
     var cellName: [details] = [
     details(buttonName: "Create your Event"),
     details(buttonName: "Create Blog"),
-    details(buttonName: "Ask Donation")
+    //details(buttonName: "Ask Donation")
     ]
 
     override func viewDidLoad() {
@@ -64,9 +64,9 @@ class CreatePageTableViewController: UITableViewController {
         if indexPath.row == 1 {
             performSegue(withIdentifier: "ShareStoryView", sender: nil)
         }
-        if indexPath.row == 2 {
-            performSegue(withIdentifier: "AskDonation", sender: nil)
-        }
+//        if indexPath.row == 2 {
+//            performSegue(withIdentifier: "AskDonation", sender: nil)
+//        }
     }
     /*
     // Override to support conditional editing of the table view.
